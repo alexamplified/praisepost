@@ -88,7 +88,7 @@ src="cid:cardinal-pole-logo"
 </p>
 </div>
 
-<div style="background:#b5424a; padding:18px 40px; margin:0;">
+<div style="background:#b5424a; padding:18px 0; margin:0;">
   <img
     src="https://praisepost.vercel.app/mathematics-strip.png"
     alt=""
