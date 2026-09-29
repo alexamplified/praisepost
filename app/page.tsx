@@ -254,17 +254,25 @@ const praiseSentence =
             onChange={(e) => setSubject(e.target.value)}
             className="w-full border border-gray-300 rounded-xl px-4 py-3 bg-white"
           >
-            <option>History</option>
-            <option>English</option>
-            <option>Mathematics</option>
-            <option>Science</option>
-            <option>Geography</option>
-            <option>Religious Education</option>
-            <option>Physical Education</option>
-            <option>Art</option>
-            <option>Music</option>
-            <option>Drama</option>
-            <option>Whole School</option>
+<option>English</option>
+<option>Mathematics</option>
+<option>Science</option>
+<option>History</option>
+<option>Geography</option>
+<option>Religious Education</option>
+<option>Physical Education</option>
+<option>Art</option>
+<option>Music</option>
+<option>Drama</option>
+<option>French</option>
+<option>Spanish</option>
+<option>Computer Science</option>
+<option>Design & Technology</option>
+<option>Food & Nutrition</option>
+<option>Business</option>
+<option>Health & Social Care</option>
+<option>Citizenship / PSHE</option>
+<option>Whole School</option>
           </select>
         </section>
 

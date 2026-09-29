@@ -14,10 +14,31 @@ const logoPath = path.join(
 );
 
 const logo = fs.readFileSync(logoPath).toString("base64");
-const subjectStripUrl =
-  body.subject === "History"
-    ? "https://praisepost.vercel.app/history-strip.png"
-    : "https://praisepost.vercel.app/mathematics-strip.png";
+const subjectStripFiles: Record<string, string> = {
+  English: "english-strip.png",
+  Mathematics: "mathematics-strip.png",
+  Science: "science-strip.png",
+  History: "history-strip.png",
+  Geography: "geography-strip.png",
+  "Religious Education": "re-strip.png",
+  "Physical Education": "pe-strip.png",
+  Art: "art-strip.png",
+  Music: "music-strip.png",
+  Drama: "drama-strip.png",
+  French: "french-strip.png",
+  Spanish: "spanish-strip.png",
+  "Computer Science": "compsci-strip.png",
+  "Design & Technology": "dt-strip.png",
+  "Food & Nutrition": "food-strip.png",
+  Business: "business-strip.png",
+  "Health & Social Care": "health-strip.png",
+  "Citizenship / PSHE": "pshe-strip.png",
+  "Whole School": "wholeschool-strip.png",
+};
+
+const subjectStripUrl = `https://praisepost.vercel.app/${
+  subjectStripFiles[body.subject] || "wholeschool-strip.png"
+}`;
 
 
     const { data, error } = await resend.emails.send({
