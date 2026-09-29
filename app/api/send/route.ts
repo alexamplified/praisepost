@@ -14,13 +14,11 @@ const logoPath = path.join(
 );
 
 const logo = fs.readFileSync(logoPath).toString("base64");
-const mathematicsPath = path.join(
-  process.cwd(),
-  "public",
-  "mathematics.png"
-);
+const subjectStripUrl =
+  body.subject === "History"
+    ? "https://praisepost.vercel.app/history-strip.png"
+    : "https://praisepost.vercel.app/mathematics-strip.png";
 
-const mathematicsImage = fs.readFileSync(mathematicsPath).toString("base64");
 
     const { data, error } = await resend.emails.send({
       from: "PraisePost <onboarding@resend.dev>",
@@ -32,11 +30,7 @@ attachments: [
     content: logo,
     contentId: "cardinal-pole-logo",
   },
-  {
-    filename: "mathematics.png",
-    content: mathematicsImage,
-    contentId: "mathematics",
-  },
+
   
 ],
 html: `
@@ -88,9 +82,9 @@ src="cid:cardinal-pole-logo"
 </p>
 </div>
 
-<div style="background:#b5424a; padding:18px 0; margin:0;">
+<div style="background:#b5424a; padding:6px 0; margin:0;">
   <img
-    src="https://praisepost.vercel.app/mathematics-strip.png"
+    src="${subjectStripUrl}"
     alt=""
     width="520"
     style="display:block; width:100%; max-width:520px; height:auto; margin:0 auto;"
