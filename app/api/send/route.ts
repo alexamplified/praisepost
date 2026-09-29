@@ -21,13 +21,7 @@ const mathematicsPath = path.join(
 );
 
 const mathematicsImage = fs.readFileSync(mathematicsPath).toString("base64");
-const mathematicsStripPath = path.join(
-  process.cwd(),
-  "public",
-  "mathematics-strip.png"
-);
 
-const mathematicsStripImage = fs.readFileSync(mathematicsStripPath).toString("base64");
     const { data, error } = await resend.emails.send({
       from: "PraisePost <onboarding@resend.dev>",
       to: ["alex@amplifiedschools.co.uk"],
@@ -43,11 +37,7 @@ attachments: [
     content: mathematicsImage,
     contentId: "mathematics",
   },
-  {
-    filename: "mathematics-strip.png",
-    content: mathematicsStripImage,
-    contentId: "mathematics-strip",
-  },
+  
 ],
 html: `
 <style>
@@ -100,7 +90,7 @@ src="cid:cardinal-pole-logo"
 
 <div style="background:#b5424a; padding:18px 40px; margin:0;">
   <img
-    src="cid:mathematics-strip"
+    src="https://praisepost.vercel.app/mathematics-strip.png"
     alt=""
     width="520"
     style="display:block; width:100%; max-width:520px; height:auto; margin:0 auto;"
