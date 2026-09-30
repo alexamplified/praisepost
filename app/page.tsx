@@ -41,6 +41,27 @@ const praisePhrases: Record<string, string> = {
   "Excellent Teamwork": "worked exceptionally well with others",
   "Going Above & Beyond": "went above and beyond what was expected",
 };
+const subjectStripFiles: Record<string, string> = {
+  English: "english-strip.png",
+  Mathematics: "mathematics-strip.png",
+  Science: "science-strip.png",
+  History: "history-strip.png",
+  Geography: "geography-strip.png",
+  "Religious Education": "re-strip.png",
+  "Physical Education": "pe-strip.png",
+  Art: "art-strip.png",
+  Music: "music-strip.png",
+  Drama: "drama-strip.png",
+  French: "french-strip.png",
+  Spanish: "spanish-strip.png",
+  "Computer Science": "compsci-strip.png",
+  "Design & Technology": "dt-strip.png",
+  "Food & Nutrition": "food-strip.png",
+  Business: "business-strip.png",
+  "Health & Social Care": "health-strip.png",
+  "Citizenship / PSHE": "pshe-strip.png",
+  "Whole School": "wholeschool-strip.png",
+};
 export default function Home() {
   const [search, setSearch] = useState("");
   const [selectedPupil, setSelectedPupil] = useState("");
@@ -78,17 +99,29 @@ const praiseSentence =
   if (showPreview) {
   return (
     <main className="min-h-screen bg-gray-50 text-black">
-      <header className="bg-black text-white px-8 py-5 flex justify-between items-center">
-        <div>
-          <h1 className="text-2xl font-bold tracking-wide">PRAISE POST</h1>
-          <p className="text-sm text-gray-300">Cardinal Pole Catholic School</p>
-        </div>
+      <header className="bg-[#b5424a] text-white px-8 py-4 flex justify-between items-center">
+  <div className="flex items-center gap-4">
+    <div className="bg-white rounded-lg p-2">
+      <img
+        src="/cardinal-pole-logo.png"
+        alt="Cardinal Pole Catholic School"
+        className="h-14 w-auto"
+      />
+    </div>
 
-        <div className="text-right">
-          <p className="font-semibold">Mr Parker</p>
-          <p className="text-sm text-gray-300">History</p>
-        </div>
-      </header>
+    <div>
+      <h1 className="text-2xl font-bold tracking-wide">PRAISE POST</h1>
+      <p className="text-sm text-white/80">
+        Cardinal Pole Catholic School
+      </p>
+    </div>
+  </div>
+
+  <div className="text-right">
+    <p className="font-semibold">Mr Parker</p>
+    <p className="text-sm text-white/80">History</p>
+  </div>
+</header>
 
       <div className="max-w-4xl mx-auto px-6 py-10">
 
@@ -106,7 +139,7 @@ const praiseSentence =
 
         <section className="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
 
-          <div className="bg-black text-white text-center px-8 py-10">
+          <div className="bg-[#b5424a] text-white text-center px-8 py-10">
             <p className="text-sm uppercase tracking-widest mb-3">
               Cardinal Pole Catholic School
             </p>
@@ -133,16 +166,20 @@ const praiseSentence =
               {selectedReasons.map((reason) => (
                 <span
                   key={reason}
-                  className="bg-gray-100 border border-gray-200 rounded-full px-4 py-2 font-semibold"
+                  className="bg-[#b5424a]/10 text-[#b5424a] border border-[#b5424a]/30 rounded-full px-4 py-2 font-semibold"
                 >
                   ★ {reason}
                 </span>
               ))}
             </div>
 
-<p className="mt-6 text-lg leading-relaxed">
-  {praiseSentence}
-</p>
+<div className="mt-6 bg-[#b5424a] rounded-xl overflow-hidden">
+  <img
+    src={`/${subjectStripFiles[subject]}`}
+    alt={`${subject} illustration`}
+    className="w-[90%] h-auto mx-auto"
+  />
+</div>
 
             <div className="border-t border-gray-200 mt-8 pt-6">
               <p className="text-lg">
@@ -183,7 +220,7 @@ const praiseSentence =
       alert("Something went wrong sending the PraisePost.");
     }
   }}
-  className="bg-black text-white px-8 py-4 rounded-xl font-bold"
+  className="bg-[#b5424a] hover:bg-[#9f3941] text-white px-8 py-4 rounded-xl font-bold transition"
 >
   Send PraisePost →
 </button>
@@ -195,17 +232,29 @@ const praiseSentence =
 }
   return (
     <main className="min-h-screen bg-gray-50 text-black">
-      <header className="bg-black text-white px-8 py-5 flex justify-between items-center">
-        <div>
-          <h1 className="text-2xl font-bold tracking-wide">PRAISE POST</h1>
-          <p className="text-sm text-gray-300">Cardinal Pole Catholic School</p>
-        </div>
+      <header className="bg-[#b5424a] text-white px-8 py-4 flex justify-between items-center">
+  <div className="flex items-center gap-4">
+    <div className="bg-white rounded-lg p-2">
+      <img
+        src="/cardinal-pole-logo.png"
+        alt="Cardinal Pole Catholic School"
+        className="h-14 w-auto"
+      />
+    </div>
 
-        <div className="text-right">
-          <p className="font-semibold">Mr Parker</p>
-          <p className="text-sm text-gray-300">History</p>
-        </div>
-      </header>
+    <div>
+      <h1 className="text-2xl font-bold tracking-wide">PRAISE POST</h1>
+      <p className="text-sm text-white/80">
+        Cardinal Pole Catholic School
+      </p>
+    </div>
+  </div>
+
+  <div className="text-right">
+    <p className="font-semibold">Mr Parker</p>
+    <p className="text-sm text-white/80">History</p>
+  </div>
+</header>
 
       <div className="max-w-4xl mx-auto px-6 py-10">
         <h2 className="text-3xl font-bold">Create a PraisePost</h2>
@@ -274,7 +323,16 @@ const praiseSentence =
 <option>Citizenship / PSHE</option>
 <option>Whole School</option>
           </select>
-        </section>
+
+<div className="mt-4 bg-[#b5424a] rounded-xl overflow-hidden">
+  <img
+    src={`/${subjectStripFiles[subject]}`}
+    alt={`${subject} illustration`}
+    className="w-[90%] h-auto mx-auto"
+  />
+</div>
+
+</section>
 
         <section className="bg-white rounded-2xl shadow-sm border border-gray-200 p-6 mt-5">
           <h3 className="text-lg font-bold mb-2">
@@ -293,8 +351,8 @@ const praiseSentence =
                   onClick={() => toggleReason(reason)}
                   className={`rounded-xl border p-4 text-left font-semibold transition ${
                     selected
-                      ? "bg-black text-white border-black"
-                      : "bg-white border-gray-300 hover:border-black"
+  ? "bg-[#b5424a] text-white border-[#b5424a]"
+  : "bg-white border-gray-300 hover:border-[#b5424a]"
                   }`}
                 >
                   {selected ? "★ " : "☆ "}
